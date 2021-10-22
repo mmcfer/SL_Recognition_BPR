@@ -1,0 +1,10 @@
+save('Fist.mat','Fist')
+save('Fist_rot.mat','Fist_rot')
+save('Five.mat','Five')
+save('Five2.mat','Five2')
+save('Five_rot.mat','Five_rot')
+save('Five2_rot.mat','Five2_rot')
+save('Star.mat','Star')
+save('Horns.mat','Horns')
+
+save('Test_Image_No_Bin_mod_seg','Fist_test','Fist_rot_test','Five_test','Five2_test','Five_rot_test','Five2_rot_test','Star_test','Horns_test')

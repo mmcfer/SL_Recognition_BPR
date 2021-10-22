@@ -1,0 +1,22 @@
+%Steps to follow
+
+GoodSuperHMM95.hmm_M_basta=superHMM95_14.hmm_M_basta;
+GoodSuperHMM95.hmm_M_buonissimo=superHMM95_8.hmm_M_buonissimo;
+GoodSuperHMM95.hmm_M_cheduepalle=superHMM95_19.hmm_M_cheduepalle;
+GoodSuperHMM95.hmm_M_chevuoi=superHMM95_13.hmm_M_chevuoi; 
+GoodSuperHMM95.hmm_M_combinato=superHMM95_11.hmm_M_combinato;
+GoodSuperHMM95.hmm_M_cosatifarei=superHMM95_13.hmm_M_cosatifarei;
+GoodSuperHMM95.hmm_M_daccordo=superHMM95_7.hmm_M_daccordo;
+GoodSuperHMM95.hmm_M_fame=superHMM95_15.hmm_M_fame;
+GoodSuperHMM95.hmm_M_freganiente=superHMM95_6.hmm_M_freganiente;
+GoodSuperHMM95.hmm_M_furbo=superHMM95_11.hmm_M_furbo;
+GoodSuperHMM95.hmm_M_messidaccordo=superHMM95_7.hmm_M_messidaccordo;
+GoodSuperHMM95.hmm_M_noncenepiu=superHMM95_12.hmm_M_noncenepiu;
+GoodSuperHMM95.hmm_M_ok=superHMM95_9.hmm_M_ok;
+GoodSuperHMM95.hmm_M_perfetto=superHMM95_9.hmm_M_perfetto;
+GoodSuperHMM95.hmm_M_prendere=superHMM95_12.hmm_M_prendere;
+GoodSuperHMM95.hmm_M_seipazzo=superHMM95_16.hmm_M_seipazzo;
+GoodSuperHMM95.hmm_M_sonostufo=superHMM95_13.hmm_M_sonostufo;
+GoodSuperHMM95.hmm_M_tantotempo=superHMM95_13.hmm_M_tantotempo;
+GoodSuperHMM95.hmm_M_vattene=superHMM95_16.hmm_M_vattene;
+GoodSuperHMM95.hmm_M_vieniqui=superHMM95_9.hmm_M_vieniqui;

@@ -1,0 +1,147 @@
+%train
+
+hist_descrip_all=[ hist_descrip1	;	hist_descrip2	;	hist_descrip3	;	hist_descrip4	;	hist_descrip5	;	hist_descrip6	;	hist_descrip7	;	hist_descrip8	;	hist_descrip9	;	hist_descrip10	;	hist_descrip11	;	hist_descrip12	;	hist_descrip13	;	hist_descrip14	;	hist_descrip15	;	hist_descrip16	;	hist_descrip17	;	hist_descrip18	;	hist_descrip19	;	hist_descrip20	];
+ 
+ maxim_hist=max(hist_descrip_all);
+for i=1:50
+     
+     hist_descrip_all(:,i)=hist_descrip_all(:,i)/maxim_hist(i);
+    
+end
+
+training_label_vector=[ ones(1,length(hist_descrip1))	,	2*ones(1,length(hist_descrip2))	,	3*ones(1,length(hist_descrip3))	,	4*ones(1,length(hist_descrip4))	,	5*ones(1,length(hist_descrip5))	,	6*ones(1,length(hist_descrip6))	,	7*ones(1,length(hist_descrip7))	,	8*ones(1,length(hist_descrip8))	,	9*ones(1,length(hist_descrip9))	,	10*ones(1,length(hist_descrip10))	,	11*ones(1,length(hist_descrip11))	,	12*ones(1,length(hist_descrip12))	,	13*ones(1,length(hist_descrip13))	,	14*ones(1,length(hist_descrip14))	,	15*ones(1,length(hist_descrip15))	,	16*ones(1,length(hist_descrip16))	,	17*ones(1,length(hist_descrip17))	,	18*ones(1,length(hist_descrip18))	,	19*ones(1,length(hist_descrip19))	,	20*ones(1,length(hist_descrip20))	];
+ training_label_vector=training_label_vector';
+Training_instance_matrix=sparse(hist_descrip_all);
+model = train(training_label_vector, Training_instance_matrix ,['-s 4' , '-c 1']);
+
+
+%sacar histogramas por gestos aislados
+
+[ges_hist1,hist_error1]=shape_context_histo_centr_per_gesture(basta_right,centroids_shape_es,maxim,maxim_hist);
+ [ges_hist2,hist_error2]=shape_context_histo_centr_per_gesture(buonissimo_right,centroids_shape_es,maxim,maxim_hist); 
+ [ges_hist3,hist_error3]=shape_context_histo_centr_per_gesture(cheduepalle_right,centroids_shape_es,maxim,maxim_hist);
+ [ges_hist4,hist_error4]=shape_context_histo_centr_per_gesture(chevuoi_right,centroids_shape_es,maxim,maxim_hist);
+ [ges_hist5,hist_error5]=shape_context_histo_centr_per_gesture(combinato_right,centroids_shape_es,maxim,maxim_hist);
+  [ges_hist6,hist_error6]=shape_context_histo_centr_per_gesture(cosatifarei_right,centroids_shape_es,maxim,maxim_hist);
+ [ges_hist7,hist_error7]=shape_context_histo_centr_per_gesture(daccordo_right,centroids_shape_es,maxim,maxim_hist);
+ [ges_hist8,hist_error8]=shape_context_histo_centr_per_gesture(fame_right,centroids_shape_es,maxim,maxim_hist); 
+ [ges_hist9,hist_error9]=shape_context_histo_centr_per_gesture(freganiente_right,centroids_shape_es,maxim,maxim_hist);
+ 
+ [ges_hist10,hist_error10]=shape_context_histo_centr_per_gesture(furbo_right,centroids_shape_es,maxim,maxim_hist);
+ [ges_hist11,hist_error11]=shape_context_histo_centr_per_gesture(messidaccordo_right,centroids_shape_es,maxim,maxim_hist);
+  [ges_hist12,hist_error12]=shape_context_histo_centr_per_gesture(noncenepiu_right,centroids_shape_es,maxim,maxim_hist); 
+ [ges_hist13,hist_error13]=shape_context_histo_centr_per_gesture(ok_right,centroids_shape_es,maxim,maxim_hist);
+  [ges_hist14,hist_error14]=shape_context_histo_centr_per_gesture(perfetto_right,centroids_shape_es,maxim,maxim_hist);
+ [ges_hist15,hist_error15]=shape_context_histo_centr_per_gesture(prendere_right,centroids_shape_es,maxim,maxim_hist);
+ [ges_hist16,hist_error16]=shape_context_histo_centr_per_gesture(seipazzo_right,centroids_shape_es,maxim,maxim_hist);
+[ges_hist17,hist_error17]=shape_context_histo_centr_per_gesture(sonostufo_right,centroids_shape_es,maxim,maxim_hist);
+[ges_hist18,hist_error18]=shape_context_histo_centr_per_gesture(tantotempo_right,centroids_shape_es,maxim,maxim_hist);
+[ges_hist19,hist_error19]=shape_context_histo_centr_per_gesture(vattene_right,centroids_shape_es,maxim,maxim_hist);
+[ges_hist20,hist_error20]=shape_context_histo_centr_per_gesture(vieniqui_right,centroids_shape_es,maxim,maxim_hist);
+
+
+%predictions
+
+percent_1=prediction_SVM(model,ges_hist1);
+predictions_1=hist(percent_1,0:20);
+
+percent_2=prediction_SVM(model,ges_hist2);
+predictions_2=hist(percent_2,0:20);
+
+percent_3=prediction_SVM(model,ges_hist3);
+predictions_3=hist(percent_3,0:20);
+
+percent_4=prediction_SVM(model,ges_hist4);
+predictions_4=hist(percent_4,0:20);
+
+percent_5=prediction_SVM(model,ges_hist5);
+predictions_5=hist(percent_5,0:20);
+
+percent_6=prediction_SVM(model,ges_hist6);
+predictions_6=hist(percent_6,0:20);
+
+percent_7=prediction_SVM(model,ges_hist7);
+predictions_7=hist(percent_7,0:20);
+
+percent_8=prediction_SVM(model,ges_hist8);
+predictions_8=hist(percent_8,0:20);
+
+percent_9=prediction_SVM(model,ges_hist9);
+predictions_9=hist(percent_9,0:20);
+
+percent_10=prediction_SVM(model,ges_hist10);
+predictions_10=hist(percent_10,0:20);
+
+percent_11=prediction_SVM(model,ges_hist11);
+predictions_11=hist(percent_11,0:20);
+
+percent_12=prediction_SVM(model,ges_hist12);
+predictions_12=hist(percent_12,0:20);
+
+percent_13=prediction_SVM(model,ges_hist13);
+predictions_13=hist(percent_13,0:20);
+
+percent_14=prediction_SVM(model,ges_hist14)
+predictions_14=hist(percent_14,0:20);
+
+percent_15=prediction_SVM(model,ges_hist15);
+predictions_15=hist(percent_15,0:20);
+
+percent_16=prediction_SVM(model,ges_hist16);
+predictions_16=hist(percent_16,0:20);
+
+percent_17=prediction_SVM(model,ges_hist17);
+predictions_17=hist(percent_17,0:20);
+
+percent_18=prediction_SVM(model,ges_hist18);
+predictions_18=hist(percent_18,0:20);
+
+percent_19=prediction_SVM(model,ges_hist19);
+predictions_19=hist(percent_19,0:20);
+
+percent_20=prediction_SVM(model,ges_hist20);
+predictions_20=hist(percent_20,0:20);
+
+
+matrix_confusion=[predictions_1	;	predictions_2	;	predictions_3	;	predictions_4	;	predictions_5	;	predictions_6	;	predictions_7	;	predictions_8	;	predictions_9	;	predictions_10	;	predictions_11	;	predictions_12	;	predictions_13	;	predictions_14	;	predictions_15	;	predictions_16	;	predictions_17	;	predictions_18	;	predictions_19	;	predictions_20	];
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+% "Usage: model = train(training_label_vector, training_instance_matrix, 'liblinear_options', 'col');\n"
+% 	"liblinear_options:\n"
+% 	"-s type : set type of solver (default 1)\n"
+% 	"	0 -- L2-regularized logistic regression (primal)\n"
+% 	"	1 -- L2-regularized L2-loss support vector classification (dual)\n"	
+% 	"	2 -- L2-regularized L2-loss support vector classification (primal)\n"
+% 	"	3 -- L2-regularized L1-loss support vector classification (dual)\n"
+% 	"	4 -- multi-class support vector classification by Crammer and Singer\n"
+% 	"	5 -- L1-regularized L2-loss support vector classification\n"
+% 	"	6 -- L1-regularized logistic regression\n"
+% 	"	7 -- L2-regularized logistic regression (dual)\n"
+% 	"-c cost : set the parameter C (default 1)\n"
+% 	"-e epsilon : set tolerance of termination criterion\n"
+% 	"	-s 0 and 2\n" 
+% 	"		|f'(w)|_2 <= eps*min(pos,neg)/l*|f'(w0)|_2,\n" 
+% 	"		where f is the primal function and pos/neg are # of\n" 
+% 	"		positive/negative data (default 0.01)\n"
+% 	"	-s 1, 3, 4 and 7\n"
+% 	"		Dual maximal violation <= eps; similar to libsvm (default 0.1)\n"
+% 	"	-s 5 and 6\n"
+% 	"		|f'(w)|_1 <= eps*min(pos,neg)/l*|f'(w0)|_1,\n"
+% 	"		where f is the primal function (default 0.01)\n"
+% 	"-B bias : if bias >= 0, instance x becomes [x; bias]; if < 0, no bias term added (default -1)\n"
+% 	"-wi weight: weights adjust the parameter C of different classes (see README for details)\n"
+% 	"-v n: n-fold cross validation mode\n"
+% 	"-q : quiet mode (no outputs)\n"
+% 	"col:\n"
+% 	"	if 'col' is setted, training_instance_matrix is parsed in column format, otherwise is in row format\n"
+% 
+
+
+%prueba basta
